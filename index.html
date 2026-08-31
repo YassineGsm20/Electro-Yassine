@@ -4,11 +4,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Electro Yassine</title>
 
 <style>
-
 *{
     box-sizing:border-box;
     margin:0;
@@ -24,11 +22,9 @@ header{
     background:#111827;
     color:white;
     padding:17px 7%;
-
     display:flex;
     justify-content:space-between;
     align-items:center;
-
     position:sticky;
     top:0;
     z-index:100;
@@ -53,12 +49,7 @@ header{
     font-weight:bold;
 }
 .hero{
-    background:linear-gradient(
-        135deg,
-        #111827,
-        #1f2937
-    );
-
+    background:linear-gradient(135deg, #111827, #1f2937);
     color:white;
     text-align:center;
     padding:70px 20px;
@@ -81,16 +72,11 @@ header{
 .search input{
     width:90%;
     max-width:600px;
-
     padding:14px;
-
     border:1px solid #ddd;
     border-radius:10px;
-
     font-size:16px;
 }
-
-
 
 .products-section{
     padding:20px 7% 70px;
@@ -102,32 +88,20 @@ header{
 
 .products{
     display:grid;
-
-    grid-template-columns:
-    repeat(
-        auto-fit,
-        minmax(220px,1fr)
-    );
-
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
     gap:25px;
 }
 
 .product{
     background:white;
-
     border-radius:15px;
-
     overflow:hidden;
-
-    box-shadow:
-    0 5px 20px
-    rgba(0,0,0,.08);
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
 }
 
 .product img{
     width:100%;
     height:210px;
-
     object-fit:cover;
 }
 
@@ -141,27 +115,18 @@ header{
 
 .price{
     color:#00a843;
-
     font-size:21px;
-
     font-weight:bold;
-
     margin-bottom:15px;
 }
 
 .add{
     width:100%;
-
     border:none;
-
     background:#111827;
-
     color:white;
-
     padding:12px;
-
     border-radius:8px;
-
     cursor:pointer;
 }
 
@@ -170,27 +135,16 @@ header{
 }
 .cart{
     position:fixed;
-
     top:0;
     right:-450px;
-
     width:430px;
     max-width:100%;
-
     height:100vh;
-
     background:white;
-
     z-index:1000;
-
     padding:25px;
-
     overflow-y:auto;
-
-    box-shadow:
-    -5px 0 20px
-    rgba(0,0,0,.2);
-
+    box-shadow:-5px 0 20px rgba(0,0,0,.2);
     transition:.4s;
 }
 
@@ -200,44 +154,31 @@ header{
 
 .cart-header{
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
     margin-bottom:20px;
 }
 
 .close{
     background:#ef4444;
-
     color:white;
-
     border:none;
-
     padding:8px 12px;
-
     border-radius:6px;
-
     cursor:pointer;
 }
 
 .cart-item{
     display:flex;
-
     gap:12px;
-
     padding:12px 0;
-
     border-bottom:1px solid #ddd;
 }
 
 .cart-item img{
     width:70px;
     height:70px;
-
     object-fit:cover;
-
     border-radius:8px;
 }
 
@@ -247,26 +188,18 @@ header{
 
 .quantity{
     display:flex;
-
     align-items:center;
-
     gap:7px;
-
     margin-top:8px;
 }
 
 .quantity button{
     width:28px;
     height:28px;
-
     border:none;
-
     background:#111827;
-
     color:white;
-
     border-radius:5px;
-
     cursor:pointer;
 }
 
@@ -276,13 +209,11 @@ header{
 
 .totals{
     margin-top:25px;
-
     line-height:2;
 }
 
 .totals div{
     display:flex;
-
     justify-content:space-between;
 }
 
@@ -301,15 +232,10 @@ header{
 .checkout input,
 .checkout select,
 .checkout textarea{
-
     width:100%;
-
     padding:12px;
-
     margin-bottom:12px;
-
     border:1px solid #ddd;
-
     border-radius:8px;
 }
 
@@ -319,1084 +245,337 @@ header{
 
 .whatsapp{
     width:100%;
-
     padding:14px;
-
     border:none;
-
     border-radius:8px;
-
     background:#25D366;
-
     color:white;
-
     font-size:17px;
-
     font-weight:bold;
-
     cursor:pointer;
 }
 .admin-link{
     text-align:center;
-
     padding:20px;
 }
 
 .admin-link button{
     background:#111827;
-
     color:white;
-
     border:none;
-
     padding:11px 18px;
-
     border-radius:8px;
-
     cursor:pointer;
 }
 footer{
     background:#111827;
-
     color:white;
-
     text-align:center;
-
     padding:25px;
 }
 
 @media(max-width:600px){
-
     .hero h1{
         font-size:32px;
     }
-
     header{
         padding:15px;
     }
-
     .products-section{
         padding-left:15px;
         padding-right:15px;
     }
-
 }
-
 </style>
-
 </head>
-
 
 <body>
 
-
 <header>
-
     <div class="logo">
         Electro <span>Yassine</span>
     </div>
-
-    <button
-        class="cart-button"
-        onclick="openCart()"
-    >
-
-        🛒 Panier
-        (<span id="cartCount">0</span>)
-
+    <button class="cart-button" onclick="openCart()">
+        🛒 Panier (<span id="cartCount">0</span>)
     </button>
-
 </header>
 
-
 <section class="hero">
-
-    <h1>
-        Electro Yassine
-    </h1>
-
-    <p>
-        Votre boutique électronique
-        à Riad Oulfa
-    </p>
-
+    <h1>Electro Yassine</h1>
+    <p>Votre boutique électronique à Riad Oulfa</p>
 </section>
-
 
 <div class="search">
-
-    <input
-        id="search"
-        type="text"
-        placeholder="🔎 Rechercher un produit..."
-        oninput="searchProducts()"
-    >
-
+    <input id="search" type="text" placeholder="🔎 Rechercher un produit..." oninput="searchProducts()">
 </div>
 
-
 <section class="products-section">
-
-    <h2>
-        🛍️ Nos produits
-    </h2>
-
-    <div
-        id="products"
-        class="products"
-    ></div>
-
+    <h2>🛍️ Nos produits</h2>
+    <div id="products" class="products"></div>
 </section>
-<div
-    id="cart"
-    class="cart"
->
 
+<div id="cart" class="cart">
     <div class="cart-header">
-
-        <h2>
-            🛒 Mon panier
-        </h2>
-
-        <button
-            class="close"
-            onclick="closeCart()"
-        >
-            ✕
-        </button>
-
+        <h2>🛒 Mon panier</h2>
+        <button class="close" onclick="closeCart()">✕</button>
     </div>
-
 
     <div id="cartItems"></div>
 
-
     <div class="totals">
-
         <div>
-
-            <span>
-                Sous-total
-            </span>
-
-            <strong>
-                <span id="subtotal">
-                    0
-                </span>
-                DH
-            </strong>
-
+            <span>Sous-total</span>
+            <strong><span id="subtotal">0</span> DH</strong>
         </div>
-
-
         <div>
-
-            <span>
-                Livraison
-            </span>
-
-            <strong>
-                <span id="deliveryPrice">
-                    0
-                </span>
-                DH
-            </strong>
-
+            <span>Livraison</span>
+            <strong><span id="deliveryPrice">0</span> DH</strong>
         </div>
-
-
         <hr>
-
-
         <div class="total">
-
-            <span>
-                TOTAL
-            </span>
-
-            <strong>
-                <span id="total">
-                    0
-                </span>
-                DH
-            </strong>
-
+            <span>TOTAL</span>
+            <strong><span id="total">0</span> DH</strong>
         </div>
-
     </div>
-
 
     <div class="checkout">
-
-        <h3>
-            📦 Informations
-        </h3>
-
-
-        <input
-            id="customerName"
-            type="text"
-            placeholder="Nom complet"
-        >
-
-
-        <input
-            id="customerPhone"
-            type="tel"
-            placeholder="Téléphone"
-        >
-
-
-        <select
-            id="delivery"
-            onchange="updateCart()"
-        >
-
-            <option value="store">
-
-                🏪 Retrait magasin
-                - Riad Oulfa (0 DH)
-
-            </option>
-
-            <option value="delivery">
-
-                🚚 Livraison Casablanca
-                (15 DH)
-
-            </option>
-
+        <h3>📦 Informations</h3>
+        <input id="customerName" type="text" placeholder="Nom complet">
+        <input id="customerPhone" type="tel" placeholder="Téléphone">
+        <select id="delivery" onchange="updateCart()">
+            <option value="store">🏪 Retrait magasin - Riad Oulfa (0 DH)</option>
+            <option value="delivery">🚚 Livraison Casablanca (15 DH)</option>
         </select>
-
-
-        <textarea
-            id="address"
-            placeholder="Adresse de livraison"
-        ></textarea>
-
-
-        <button
-            class="whatsapp"
-            onclick="sendOrder()"
-        >
-
-            📱 Commander sur WhatsApp
-
-        </button>
-
+        <textarea id="address" placeholder="Adresse de livraison"></textarea>
+        <button class="whatsapp" onclick="sendOrder()">📱 Commander sur WhatsApp</button>
     </div>
-
 </div>
-
 
 <div class="admin-link">
-
-    <button
-        onclick="openAdmin()"
-    >
-
-        ⚙️ Espace vendeur
-
-    </button>
-
+    <button onclick="openAdmin()">⚙️ Espace vendeur</button>
 </div>
 
-
 <footer>
-
-    <p>
-        © 2026 Electro Yassine
-    </p>
-
+    <p>© 2026 Electro Yassine</p>
     <br>
-
-    <p>
-        📍 Riad Oulfa, Casablanca
-    </p>
-
+    <p>📍 Riad Oulfa, Casablanca</p>
 </footer>
 
+<!-- مكتبة Supabase -->
+<script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
 
-<script>
-function getProducts(){
+    // ⚠️ استبدل هذه الروابط بمعلومات مشروعك الحقيقية من Supabase
+    const supabaseUrl = 'https://nvimuhzejyauoriupkot.supabase.co';
+    const supabaseKey = 'sb_publishable_27i9MDfLKt8i-lWiiROvDA_CfF_yRvS';
+    const supabase = createClient(supabaseUrl, supabaseKey);
 
-    try{
+    let products = [];
+    let cart = [];
 
-        const saved =
-            localStorage.getItem(
-                "electroProducts"
-            );
+    // جلب المنتجات من Supabase
+    async function fetchProducts() {
+        const { data, error } = await supabase.from('products').select('*');
+        if (error) {
+            console.error('Erreur lors du chargement des produits:', error);
+            products = [];
+        } else {
+            // مطابقة أسماء الأعمدة في قاعدة البيانات مع الكود (title -> name, Image -> image)
+            products = (data || []).map(p => ({
+                id: p.id,
+                name: p.title,
+                price: p.price,
+                image: p.Image
+            }));
+        }
+        displayProducts(products);
+    }
 
+    window.displayProducts = function(list){
+        const container = document.getElementById("products");
+        container.innerHTML = "";
 
-        if(saved){
-
-            const data =
-                JSON.parse(saved);
-
-
-            if(Array.isArray(data)){
-
-                return data;
-
-            }
-
+        if(!list || list.length === 0){
+            container.innerHTML = `
+                <div style="text-align:center; padding:50px; width:100%; grid-column:1/-1;">
+                    <h3>📦 Aucun produit disponible</h3>
+                    <p style="margin-top:10px;color:#777">Ajoutez des produits depuis l'espace vendeur.</p>
+                </div>
+            `;
+            return;
         }
 
-    }catch(error){
-
-        console.error(
-            "Erreur produits :",
-            error
-        );
-
-    }
-
-
-    return [];
-
-}
-
-
-let products = getProducts();
-let cart = [];
-function displayProducts(list){
-
-    const container =
-        document.getElementById(
-            "products"
-        );
-
-
-    container.innerHTML = "";
-
-
-    if(!list || list.length === 0){
-
-        container.innerHTML = `
-
-            <div
-                style="
-                text-align:center;
-                padding:50px;
-                width:100%;
-                grid-column:1/-1;
-                "
-            >
-
-                <h3>
-                    📦 Aucun produit disponible
-                </h3>
-
-                <p style="margin-top:10px;color:#777">
-
-                    Ajoutez des produits depuis
-                    l'espace vendeur.
-
-                </p>
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    list.forEach(product => {
-
-        container.innerHTML += `
-
-            <div class="product">
-
-                <img
-                    src="${product.image}"
-                    alt="${escapeHTML(product.name)}"
-                >
-
-                <div class="product-info">
-
-                    <h3>
-                        ${escapeHTML(product.name)}
-                    </h3>
-
-                    <div class="price">
-                        ${product.price} DH
+        list.forEach(product => {
+            container.innerHTML += `
+                <div class="product">
+                    <img src="${product.image}" alt="${escapeHTML(product.name)}">
+                    <div class="product-info">
+                        <h3>${escapeHTML(product.name)}</h3>
+                        <div class="price">${product.price} DH</div>
+                        <button class="add" onclick="window.addToCart(${product.id})">🛒 Ajouter au panier</button>
                     </div>
-
-                    <button
-                        class="add"
-                        onclick="addToCart(${product.id})"
-                    >
-
-                        🛒 Ajouter au panier
-
-                    </button>
-
                 </div>
-
-            </div>
-
-        `;
-
-    });
-
-}
-function escapeHTML(text){
-
-    const div =
-        document.createElement("div");
-
-    div.textContent = text;
-
-    return div.innerHTML;
-
-}
-function addToCart(id){
-
-    const product =
-        products.find(
-            p => p.id === id
-        );
-
-
-    if(!product){
-
-        alert(
-            "Produit introuvable."
-        );
-
-        return;
-
+            `;
+        });
     }
 
+    function escapeHTML(text){
+        const div = document.createElement("div");
+        div.textContent = text;
+        return div.innerHTML;
+    }
 
-    const existing =
-        cart.find(
-            p => p.id === id
-        );
+    window.addToCart = function(id){
+        const product = products.find(p => p.id === id);
+        if(!product){
+            alert("Produit introuvable.");
+            return;
+        }
 
+        const existing = cart.find(p => p.id === id);
+        if(existing){
+            existing.quantity++;
+        }else{
+            cart.push({
+                id: product.id,
+                name: product.name,
+                price: Number(product.price),
+                image: product.image,
+                quantity: 1
+            });
+        }
 
-    if(existing){
+        updateCart();
+        openCart();
+    }
 
-        existing.quantity++;
+    window.changeQuantity = function(id, amount){
+        const item = cart.find(p => p.id === id);
+        if(!item) return;
 
-    }else{
+        item.quantity += amount;
+        if(item.quantity <= 0){
+            cart = cart.filter(p => p.id !== id);
+        }
+        updateCart();
+    }
 
-        cart.push({
+    window.removeFromCart = function(id){
+        cart = cart.filter(p => p.id !== id);
+        updateCart();
+    }
 
-            id:product.id,
+    window.updateCart = function(){
+        const container = document.getElementById("cartItems");
+        container.innerHTML = "";
 
-            name:product.name,
+        const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+        document.getElementById("cartCount").textContent = count;
 
-            price:Number(product.price),
+        if(cart.length === 0){
+            container.innerHTML = `<p style="text-align:center; padding:25px; color:#777;">Votre panier est vide 🛒</p>`;
+        }
 
-            image:product.image,
-
-            quantity:1
-
+        cart.forEach(item => {
+            container.innerHTML += `
+                <div class="cart-item">
+                    <img src="${item.image}">
+                    <div class="cart-info">
+                        <strong>${escapeHTML(item.name)}</strong>
+                        <p>${item.price} DH</p>
+                        <div class="quantity">
+                            <button onclick="window.changeQuantity(${item.id}, -1)">-</button>
+                            <span>${item.quantity}</span>
+                            <button onclick="window.changeQuantity(${item.id}, 1)">+</button>
+                            <button class="delete" onclick="window.removeFromCart(${item.id})">🗑</button>
+                        </div>
+                    </div>
+                </div>
+            `;
         });
 
+        const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        const deliveryElement = document.getElementById("delivery");
+        const deliveryPrice = (deliveryElement && deliveryElement.value === "delivery") ? 15 : 0;
+
+        document.getElementById("subtotal").textContent = subtotal;
+        document.getElementById("deliveryPrice").textContent = deliveryPrice;
+        document.getElementById("total").textContent = subtotal + deliveryPrice;
     }
 
-
-    updateCart();
-
-    openCart();
-
-}
-function changeQuantity(
-    id,
-    amount
-){
-
-    const item =
-        cart.find(
-            p => p.id === id
-        );
-
-
-    if(!item){
-        return;
+    window.openCart = function(){
+        document.getElementById("cart").classList.add("open");
     }
 
-
-    item.quantity += amount;
-
-
-    if(item.quantity <= 0){
-
-        cart =
-            cart.filter(
-                p => p.id !== id
-            );
-
+    window.closeCart = function(){
+        document.getElementById("cart").classList.remove("open");
     }
 
-
-    updateCart();
-
-}
-function removeFromCart(id){
-
-    cart =
-        cart.filter(
-            p => p.id !== id
-        );
-
-
-    updateCart();
-
-}
-function updateCart(){
-
-    const container =
-        document.getElementById(
-            "cartItems"
-        );
-
-
-    container.innerHTML = "";
-
-
-    const count =
-        cart.reduce(
-            (sum,item) =>
-            sum + item.quantity,
-            0
-        );
-
-
-    document.getElementById(
-        "cartCount"
-    ).textContent = count;
-
-
-    if(cart.length === 0){
-
-        container.innerHTML = `
-
-            <p style="
-                text-align:center;
-                padding:25px;
-                color:#777;
-            ">
-
-                Votre panier est vide 🛒
-
-            </p>
-
-        `;
-
+    window.searchProducts = function(){
+        const text = document.getElementById("search").value.toLowerCase().trim();
+        const result = products.filter(product => product.name.toLowerCase().includes(text));
+        displayProducts(result);
     }
 
-
-    cart.forEach(item => {
-
-        container.innerHTML += `
-
-            <div class="cart-item">
-
-                <img
-                    src="${item.image}"
-                >
-
-                <div class="cart-info">
-
-                    <strong>
-                        ${escapeHTML(item.name)}
-                    </strong>
-
-                    <p>
-                        ${item.price} DH
-                    </p>
-
-                    <div class="quantity">
-
-                        <button
-                            onclick="
-                                changeQuantity(
-                                    ${item.id},
-                                    -1
-                                )
-                            "
-                        >
-                            -
-                        </button>
-
-
-                        <span>
-                            ${item.quantity}
-                        </span>
-
-
-                        <button
-                            onclick="
-                                changeQuantity(
-                                    ${item.id},
-                                    1
-                                )
-                            "
-                        >
-                            +
-                        </button>
-
-
-                        <button
-                            class="delete"
-                            onclick="
-                                removeFromCart(
-                                    ${item.id}
-                                )
-                            "
-                        >
-                            🗑
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        `;
-
-    });
-
-
-    const subtotal =
-        cart.reduce(
-
-            (sum,item) =>
-            sum +
-            item.price *
-            item.quantity,
-
-            0
-
-        );
-
-
-    const deliveryElement =
-        document.getElementById(
-            "delivery"
-        );
-
-
-    const deliveryPrice =
-        deliveryElement &&
-        deliveryElement.value === "delivery"
-        ? 15
-        : 0;
-
-
-    document.getElementById(
-        "subtotal"
-    ).textContent =
-        subtotal;
-
-
-    document.getElementById(
-        "deliveryPrice"
-    ).textContent =
-        deliveryPrice;
-
-
-    document.getElementById(
-        "total"
-    ).textContent =
-        subtotal +
-        deliveryPrice;
-
-}
-function openCart(){
-
-    document
-        .getElementById("cart")
-        .classList
-        .add("open");
-
-}
-
-
-function closeCart(){
-
-    document
-        .getElementById("cart")
-        .classList
-        .remove("open");
-
-}
-function searchProducts(){
-
-    const text =
-        document.getElementById(
-            "search"
-        )
-        .value
-        .toLowerCase()
-        .trim();
-
-
-    const result =
-        products.filter(
-            product =>
-            product.name
-            .toLowerCase()
-            .includes(text)
-        );
-
-
-    displayProducts(result);
-
-}
-
-
-/* ==================================================
-   COMMANDER
-================================================== */
-
-function sendOrder(){
-
-    if(cart.length === 0){
-
-        alert(
-            "🛒 Votre panier est vide."
-        );
-
-        return;
-
-    }
-
-
-    const name =
-        document.getElementById(
-            "customerName"
-        )
-        .value
-        .trim();
-
-
-    const phone =
-        document.getElementById(
-            "customerPhone"
-        )
-        .value
-        .trim();
-
-
-    const delivery =
-        document.getElementById(
-            "delivery"
-        ).value;
-
-
-    const address =
-        document.getElementById(
-            "address"
-        )
-        .value
-        .trim();
-
-
-    if(!name){
-
-        alert(
-            "Veuillez entrer votre nom."
-        );
-
-        return;
-
-    }
-
-
-    if(!phone){
-
-        alert(
-            "Veuillez entrer votre numéro de téléphone."
-        );
-
-        return;
-
-    }
-
-
-    if(
-        delivery === "delivery"
-        &&
-        !address
-    ){
-
-        alert(
-            "Veuillez entrer votre adresse."
-        );
-
-        return;
-
-    }
-
-
-    const subtotal =
-        cart.reduce(
-
-            (sum,item) =>
-            sum +
-            item.price *
-            item.quantity,
-
-            0
-
-        );
-
-
-    const deliveryPrice =
-        delivery === "delivery"
-        ? 15
-        : 0;
-
-
-    const total =
-        subtotal +
-        deliveryPrice;
-
-
-    /* ENREGISTRER COMMANDE */
-
-    let orders = [];
-
-    try{
-
-        orders =
-            JSON.parse(
-                localStorage.getItem(
-                    "electroOrders"
-                )
-            ) || [];
-
-    }catch(error){
-
-        orders = [];
-
-    }
-
-
-    const order = {
-
-        id:Date.now(),
-
-        date:
-            new Date()
-            .toLocaleString("fr-FR"),
-
-        customerName:name,
-
-        customerPhone:phone,
-
-        delivery:
-            delivery === "delivery"
-            ? "Livraison"
-            : "Retrait magasin",
-
-        address:
-            delivery === "delivery"
-            ? address
-            : "Riad Oulfa",
-
-        products:
-            cart.map(item => ({
-
-                name:item.name,
-
-                price:item.price,
-
-                quantity:item.quantity
-
-            })),
-
-        subtotal:subtotal,
-
-        deliveryPrice:deliveryPrice,
-
-        total:total,
-
-        status:"En attente"
-
-    };
-
-
-    orders.push(order);
-
-
-    localStorage.setItem(
-        "electroOrders",
-        JSON.stringify(orders)
-    );
-
-
-    let message =
-        "🛒 *NOUVELLE COMMANDE*%0A%0A";
-
-
-    message +=
-        "🏪 *Electro Yassine*%0A%0A";
-
-
-    message +=
-        "👤 Nom : "
-        + encodeURIComponent(name)
-        + "%0A";
-
-
-    message +=
-        "📞 Téléphone : "
-        + encodeURIComponent(phone)
-        + "%0A%0A";
-
-
-    message +=
-        "📦 *Produits :*%0A";
-
-
-    cart.forEach(item => {
-
-        message +=
-            "• "
-            + encodeURIComponent(item.name)
-            + " x"
-            + item.quantity
-            + " = "
-            + (
-                item.price *
-                item.quantity
-            )
-            + " DH%0A";
-
-    });
-
-
-    message +=
-        "%0A💰 Sous-total : "
-        + subtotal
-        + " DH%0A";
-
-
-    message +=
-        "🚚 Livraison : "
-        + deliveryPrice
-        + " DH%0A";
-
-
-    message +=
-        "💵 *TOTAL : "
-        + total
-        + " DH*%0A%0A";
-
-
-    if(delivery === "delivery"){
-
-        message +=
-            "🚚 Livraison Casablanca%0A";
-
-        message +=
-            "📍 Adresse : "
-            + encodeURIComponent(address)
-            + "%0A";
-
-    }else{
-
-        message +=
-            "🏪 Retrait magasin%0A";
-
-        message +=
-            "📍 Riad Oulfa, Casablanca%0A";
-
-    }
-
-
-    /*
-       ============================================
-       REMPLACE CE NUMÉRO PAR TON WHATSAPP
-       ============================================
-    */
-
-    const whatsappNumber =
-          "212614818001";
-
-
-    window.open(
-
-        "https://wa.me/"
-        + whatsappNumber
-        + "?text="
-        + message,
-
-        "_blank"
-
-    );
-
-
-    cart = [];
-
-    updateCart();
-
-}
-
-
-/* ==================================================
-   ESPACE VENDEUR
-================================================== */
-
-function openAdmin(){
-
-    const password =
-        prompt(
-            "🔐 Mot de passe vendeur :"
-        );
-
-
-    if(password === "1234"){
-
-        window.location.href =
-            "admin.html";
-
-    }else{
-
-        alert(
-            "❌ Mot de passe incorrect."
-        );
-
-    }
-
-}
-
-
-/* ==================================================
-   DÉMARRAGE
-================================================== */
-
-displayProducts(products);
-
-updateCart();
-
-window.addEventListener(
-    "storage",
-    function(event){
-
-        if(
-            event.key ===
-            "electroProducts"
-        ){
-
-            products =
-                getProducts();
-
-            displayProducts(products);
-
+    window.sendOrder = function(){
+        if(cart.length === 0){
+            alert("🛒 Votre panier est vide.");
+            return;
         }
 
-    }
-);
+        const name = document.getElementById("customerName").value.trim();
+        const phone = document.getElementById("customerPhone").value.trim();
+        const delivery = document.getElementById("delivery").value;
+        const address = document.getElementById("address").value.trim();
 
+        if(!name){ alert("Veuillez entrer votre nom."); return; }
+        if(!phone){ alert("Veuillez entrer votre numéro de téléphone."); return; }
+        if(delivery === "delivery" && !address){ alert("Veuillez entrer votre adresse."); return; }
+
+        const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        const deliveryPrice = (delivery === "delivery") ? 15 : 0;
+        const total = subtotal + deliveryPrice;
+
+        let message = "🛒 *NOUVELLE COMMANDE*%0A%0A";
+        message += "🏪 *Electro Yassine*%0A%0A";
+        message += "👤 Nom : " + encodeURIComponent(name) + "%0A";
+        message += "📞 Téléphone : " + encodeURIComponent(phone) + "%0A%0A";
+        message += "📦 *Produits :*%0A";
+
+        cart.forEach(item => {
+            message += "• " + encodeURIComponent(item.name) + " x" + item.quantity + " = " + (item.price * item.quantity) + " DH%0A";
+        });
+
+        message += "%0A💰 Sous-total : " + subtotal + " DH%0A";
+        message += "🚚 Livraison : " + deliveryPrice + " DH%0A";
+        message += "💵 *TOTAL : " + total + " DH*%0A%0A";
+
+        if(delivery === "delivery"){
+            message += "🚚 Livraison Casablanca%0A";
+            message += "📍 Adresse : " + encodeURIComponent(address) + "%0A";
+        }else{
+            message += "🏪 Retrait magasin%0A";
+            message += "📍 Riad Oulfa, Casablanca%0A";
+        }
+
+        const whatsappNumber = "212601130999";
+        window.open("https://wa.me/" + whatsappNumber + "?text=" + message, "_blank");
+
+        cart = [];
+        updateCart();
+    }
+
+    window.openAdmin = function(){
+        const password = prompt("🔐 Mot de passe vendeur :");
+        if(password === "1234"){
+            window.location.href = "admin.html";
+        }else{
+            alert("❌ Mot de passe incorrect.");
+        }
+    }
+
+    // تشغيل جلب المنتجات فور تحميل الصفحة
+    fetchProducts();
 </script>
 
 </body>
