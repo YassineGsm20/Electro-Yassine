@@ -234,7 +234,7 @@ header button{
     window.supabase = supabase;
 
     let products = [];
-    window.editingId = null; // Variable globale pour éviter les pertes de portée
+    window.editingId = null;
 
     async function fetchProducts() {
         const { data, error } = await supabase.from('products').select('*');
@@ -299,7 +299,7 @@ header button{
 
             imageUrl = publicUrl;
         } else {
-            const oldProduct = products.find(p => p.id === window.editingId);
+            const oldProduct = products.find(p => p.id === window.editingId || p.ID === window.editingId);
             if(oldProduct) imageUrl = oldProduct.Image;
         }
 
@@ -342,6 +342,8 @@ header button{
         }
 
         products.forEach(product => {
+            const prodId = product.id !== undefined ? product.id : product.ID;
+            
             list.innerHTML += `
                 <div class="admin-product">
                     <img src="${product.Image}" alt="${product.title}">
@@ -349,18 +351,18 @@ header button{
                         <strong>${product.title}</strong>
                         <p>${product.price} DH</p>
                     </div>
-                    <button class="edit" onclick="editProduct(${product.id})">✏️ Modifier</button>
-                    <button class="delete" onclick="deleteProduct(${product.id})">🗑️ Supprimer</button>
+                    <button class="edit" onclick="editProduct('${prodId}')">✏️ Modifier</button>
+                    <button class="delete" onclick="deleteProduct('${prodId}')">🗑️ Supprimer</button>
                 </div>
             `;
         });
     }
 
     window.editProduct = function(id){
-        const product = products.find(p => p.id === id);
+        const product = products.find(p => p.id == id || p.ID == id);
         if(!product) return;
 
-        window.editingId = id;
+        window.editingId = product.id !== undefined ? product.id : product.ID;
         document.getElementById("productName").value = product.title;
         document.getElementById("productPrice").value = product.price;
 
@@ -374,12 +376,9 @@ header button{
         window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
-    /* =====================================
-       SUPPRIMER PRODUIT (CORRIGÉ)
-    ===================================== */
     window.deleteProduct = async function(id){
-        if(!id || isNaN(id)){
-            alert("❌ Erreur : ID du produit invalide.");
+        if(!id || id === "undefined" || id === "null"){
+            alert("❌ Erreur : ID du produit introuvable.");
             return;
         }
 
