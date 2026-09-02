@@ -234,7 +234,7 @@ header button{
     window.supabase = supabase;
 
     let products = [];
-    window.editingId = null;
+    window.editingId = null; 
 
     async function fetchProducts() {
         const { data, error } = await supabase.from('products').select('*');
@@ -299,7 +299,7 @@ header button{
 
             imageUrl = publicUrl;
         } else {
-            const oldProduct = products.find(p => p.id === window.editingId || p.ID === window.editingId);
+            const oldProduct = products.find(p => (p.id == window.editingId) || (p.ID == window.editingId));
             if(oldProduct) imageUrl = oldProduct.Image;
         }
 
@@ -342,7 +342,8 @@ header button{
         }
 
         products.forEach(product => {
-            const prodId = product.id !== undefined ? product.id : product.ID;
+            // Récupère l'ID peu importe sa casse (id ou ID)
+            const prodId = product.id !== undefined ? product.id : (product.ID !== undefined ? product.ID : product._id);
             
             list.innerHTML += `
                 <div class="admin-product">
@@ -359,10 +360,10 @@ header button{
     }
 
     window.editProduct = function(id){
-        const product = products.find(p => p.id == id || p.ID == id);
+        const product = products.find(p => (p.id == id) || (p.ID == id) || (p._id == id));
         if(!product) return;
 
-        window.editingId = product.id !== undefined ? product.id : product.ID;
+        window.editingId = product.id !== undefined ? product.id : (product.ID !== undefined ? product.ID : product._id);
         document.getElementById("productName").value = product.title;
         document.getElementById("productPrice").value = product.price;
 
@@ -384,10 +385,20 @@ header button{
 
         if(!confirm("Voulez-vous supprimer ce produit ?")) return;
 
-        const { error } = await supabase
+        // On essaye de supprimer en filtrant par 'id'
+        let { error } = await supabase
             .from('products')
             .delete()
             .eq('id', id);
+
+        // Si la colonne dans Supabase s'appelle 'ID' en majuscule, on refait une tentative avec 'ID'
+        if (error && error.message.includes("id")) {
+            const res = await supabase
+                .from('products')
+                .delete()
+                .eq('ID', id);
+            error = res.error;
+        }
 
         if(error){
             alert("❌ خطأ أثناء الحذف: " + error.message);
@@ -414,4 +425,3 @@ header button{
 
 </body>
 </html>
-
