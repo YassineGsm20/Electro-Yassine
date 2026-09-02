@@ -189,6 +189,7 @@ header button{
         <p>Gestion de Electro Yassine (Supabase)</p>
     </div>
 
+    <!-- STATISTIQUES -->
     <div class="stats">
         <div class="stat">
             <h3>📦 Produits en boutique</h3>
@@ -196,6 +197,7 @@ header button{
         </div>
     </div>
 
+    <!-- AJOUT PRODUIT -->
     <div class="card form">
         <h2 id="formTitle">
             ➕ Ajouter un produit
@@ -227,15 +229,17 @@ header button{
 <script type="module">
     import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
 
-    const supabaseUrl = 'https://nvimuhzejyauoriupkot.supabase.co';
-    const supabaseKey = 'sb_publishable_27i9MDfLKt8i-lWiiROvDA_CfF_yRvS';
+    // ⚠️ استبدل هذه الروابط بمعلومات مشروعك الحقيقية من Supabase (Settings > API)
+    const supabaseUrl = 'YOUR_SUPABASE_URL';
+    const supabaseKey = 'YOUR_SUPABASE_ANON_KEY';
     const supabase = createClient(supabaseUrl, supabaseKey);
 
-    window.supabase = supabase;
+    window.supabase = supabase; // جعلها عامة للاستخدام في الدوال
 
     let products = [];
-    window.editingId = null; 
+    let editingId = null;
 
+    // جلب المنتجات عند فتح الصفحة
     async function fetchProducts() {
         const { data, error } = await supabase.from('products').select('*');
         if (error) {
@@ -246,6 +250,9 @@ header button{
         }
     }
 
+    /* =====================================
+       APERÇU DE LA PHOTO
+    ===================================== */
     window.previewImage = function() {
         const file = document.getElementById("productImage").files[0];
         if(!file) return;
@@ -259,6 +266,9 @@ header button{
         reader.readAsDataURL(file);
     }
 
+    /* =====================================
+       ENREGISTRER PRODUIT (مع Supabase Storage)
+    ===================================== */
     window.saveProduct = async function() {
         const name = document.getElementById("productName").value.trim();
         const price = Number(document.getElementById("productPrice").value);
@@ -275,17 +285,18 @@ header button{
             return;
         }
 
-        if(window.editingId === null && !file){
+        if(editingId === null && !file){
             alert("❌ Choisis une photo du produit.");
             return;
         }
 
         let imageUrl = null;
 
+        // 1. إذا اختار البائع صورة جديدة، نقوم برفعها لـ Supabase Storage
         if(file){
             const fileName = `${Date.now()}-${file.name}`;
             const { data: uploadData, error: uploadError } = await supabase.storage
-                .from('products')
+                .from('products') // اسم الـ Bucket الذي أنشأته
                 .upload(fileName, file);
 
             if(uploadError){
@@ -293,21 +304,24 @@ header button{
                 return;
             }
 
+            // جلب الرابط العام للصورة
             const { data: { publicUrl } } = supabase.storage
                 .from('products')
                 .getPublicUrl(fileName);
 
             imageUrl = publicUrl;
         } else {
-            const oldProduct = products.find(p => (p.id == window.editingId) || (p.ID == window.editingId));
+            // الاحتفاظ بالصورة القديمة في حال التعديل دون تغيير الصورة
+            const oldProduct = products.find(p => p.id === editingId);
             if(oldProduct) imageUrl = oldProduct.Image;
         }
 
-        if(window.editingId !== null){
+        // 2. تحديث أو إضافة المنتج في جدول قاعدة البيانات
+        if(editingId !== null){
             const { error } = await supabase
                 .from('products')
                 .update({ title: name, price: price, Image: imageUrl })
-                .eq('id', window.editingId);
+                .eq('id', editingId);
 
             if(error){
                 alert("❌ خطأ أثناء التحديث: " + error.message);
@@ -330,6 +344,7 @@ header button{
         fetchProducts();
     }
 
+/
     function displayProducts(){
         const list = document.getElementById("productsList");
         list.innerHTML = "";
@@ -342,9 +357,6 @@ header button{
         }
 
         products.forEach(product => {
-            // Récupère l'ID peu importe sa casse (id ou ID)
-            const prodId = product.id !== undefined ? product.id : (product.ID !== undefined ? product.ID : product._id);
-            
             list.innerHTML += `
                 <div class="admin-product">
                     <img src="${product.Image}" alt="${product.title}">
@@ -352,18 +364,21 @@ header button{
                         <strong>${product.title}</strong>
                         <p>${product.price} DH</p>
                     </div>
-                    <button class="edit" onclick="editProduct('${prodId}')">✏️ Modifier</button>
-                    <button class="delete" onclick="deleteProduct('${prodId}')">🗑️ Supprimer</button>
+                    <button class="edit" onclick="editProduct(${product.id})">✏️ Modifier</button>
+                    <button class="delete" onclick="deleteProduct(${product.id})">🗑️ Supprimer</button>
                 </div>
             `;
         });
     }
 
+    /* =====================================
+       MODIFIER PRODUIT
+    ===================================== */
     window.editProduct = function(id){
-        const product = products.find(p => (p.id == id) || (p.ID == id) || (p._id == id));
+        const product = products.find(p => p.id === id);
         if(!product) return;
 
-        window.editingId = product.id !== undefined ? product.id : (product.ID !== undefined ? product.ID : product._id);
+        editingId = id;
         document.getElementById("productName").value = product.title;
         document.getElementById("productPrice").value = product.price;
 
@@ -377,28 +392,14 @@ header button{
         window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
+    
     window.deleteProduct = async function(id){
-        if(!id || id === "undefined" || id === "null"){
-            alert("❌ Erreur : ID du produit introuvable.");
-            return;
-        }
-
         if(!confirm("Voulez-vous supprimer ce produit ?")) return;
 
-        // On essaye de supprimer en filtrant par 'id'
-        let { error } = await supabase
+        const { error } = await supabase
             .from('products')
             .delete()
             .eq('id', id);
-
-        // Si la colonne dans Supabase s'appelle 'ID' en majuscule, on refait une tentative avec 'ID'
-        if (error && error.message.includes("id")) {
-            const res = await supabase
-                .from('products')
-                .delete()
-                .eq('ID', id);
-            error = res.error;
-        }
 
         if(error){
             alert("❌ خطأ أثناء الحذف: " + error.message);
@@ -408,7 +409,7 @@ header button{
     }
 
     window.cancelEdit = function(){
-        window.editingId = null;
+        editingId = null;
         document.getElementById("productName").value = "";
         document.getElementById("productPrice").value = "";
         document.getElementById("productImage").value = "";
