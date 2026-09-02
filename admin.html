@@ -7,167 +7,167 @@
 
 <style>
 *{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-    font-family:Arial,sans-serif;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
 }
 
 body{
-    background:#f3f4f6;
-    color:#111827;
+    background:#f3f4f6;
+    color:#111827;
 }
 
 header{
-    background:#111827;
-    color:white;
-    padding:18px 7%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+    background:#111827;
+    color:white;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
 .logo{
-    font-size:24px;
-    font-weight:bold;
+    font-size:24px;
+    font-weight:bold;
 }
 
 .logo span{
-    color:#00c853;
+    color:#00c853;
 }
 
 header button{
-    background:#2563eb;
-    color:white;
-    border:none;
-    padding:10px 15px;
-    border-radius:7px;
-    cursor:pointer;
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:7px;
+    cursor:pointer;
 }
 
 .container{
-    max-width:1100px;
-    margin:auto;
-    padding:30px 20px;
+    max-width:1100px;
+    margin:auto;
+    padding:30px 20px;
 }
 
 .title{
-    margin-bottom:25px;
+    margin-bottom:25px;
 }
 
 .stats{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:20px;
-    margin-bottom:30px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+    margin-bottom:30px;
 }
 
 .stat{
-    background:white;
-    padding:22px;
-    border-radius:12px;
-    box-shadow:0 5px 20px rgba(0,0,0,.06);
+    background:white;
+    padding:22px;
+    border-radius:12px;
+    box-shadow:0 5px 20px rgba(0,0,0,.06);
 }
 
 .stat h3{
-    color:#6b7280;
-    font-size:15px;
-    margin-bottom:10px;
+    color:#6b7280;
+    font-size:15px;
+    margin-bottom:10px;
 }
 
 .stat p{
-    font-size:28px;
-    font-weight:bold;
+    font-size:28px;
+    font-weight:bold;
 }
 
 .card{
-    background:white;
-    padding:25px;
-    border-radius:14px;
-    margin-bottom:25px;
-    box-shadow:0 5px 20px rgba(0,0,0,.06);
+    background:white;
+    padding:25px;
+    border-radius:14px;
+    margin-bottom:25px;
+    box-shadow:0 5px 20px rgba(0,0,0,.06);
 }
 
 .card h2{
-    margin-bottom:20px;
+    margin-bottom:20px;
 }
 
 .form input{
-    width:100%;
-    padding:13px;
-    margin:6px 0 12px;
-    border:1px solid #ddd;
-    border-radius:8px;
+    width:100%;
+    padding:13px;
+    margin:6px 0 12px;
+    border:1px solid #ddd;
+    border-radius:8px;
 }
 
 .preview{
-    width:150px;
-    height:150px;
-    object-fit:cover;
-    border-radius:10px;
-    margin:10px 0;
-    display:none;
+    width:150px;
+    height:150px;
+    object-fit:cover;
+    border-radius:10px;
+    margin:10px 0;
+    display:none;
 }
 
 .save{
-    background:#00c853;
-    color:white;
-    border:none;
-    padding:12px 18px;
-    border-radius:8px;
-    cursor:pointer;
+    background:#00c853;
+    color:white;
+    border:none;
+    padding:12px 18px;
+    border-radius:8px;
+    cursor:pointer;
 }
 
 .cancel{
-    background:#6b7280;
-    color:white;
-    border:none;
-    padding:12px 18px;
-    border-radius:8px;
-    cursor:pointer;
+    background:#6b7280;
+    color:white;
+    border:none;
+    padding:12px 18px;
+    border-radius:8px;
+    cursor:pointer;
 }
 
 .admin-product{
-    display:flex;
-    align-items:center;
-    gap:15px;
-    padding:15px 0;
-    border-bottom:1px solid #ddd;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:15px 0;
+    border-bottom:1px solid #ddd;
 }
 
 .admin-product img{
-    width:80px;
-    height:80px;
-    object-fit:cover;
-    border-radius:8px;
+    width:80px;
+    height:80px;
+    object-fit:cover;
+    border-radius:8px;
 }
 
 .product-info{
-    flex:1;
+    flex:1;
 }
 
 .edit{
-    background:#2563eb;
-    color:white;
-    border:none;
-    padding:9px 12px;
-    border-radius:7px;
-    cursor:pointer;
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:9px 12px;
+    border-radius:7px;
+    cursor:pointer;
 }
 
 .delete{
-    background:#ef4444;
-    color:white;
-    border:none;
-    padding:9px 12px;
-    border-radius:7px;
-    cursor:pointer;
+    background:#ef4444;
+    color:white;
+    border:none;
+    padding:9px 12px;
+    border-radius:7px;
+    cursor:pointer;
 }
 
 .empty{
-    text-align:center;
-    padding:25px;
-    color:#6b7280;
+    text-align:center;
+    padding:25px;
+    color:#6b7280;
 }
 </style>
 </head>
@@ -175,238 +175,239 @@ header button{
 <body>
 
 <header>
-    <div class="logo">
-        Electro <span>Yassine</span>
-    </div>
-    <button onclick="goStore()">
-        🏪 Boutique
-    </button>
+    <div class="logo">
+        Electro <span>Yassine</span>
+    </div>
+    <button onclick="goStore()">
+        🏪 Boutique
+    </button>
 </header>
 
 <div class="container">
-    <div class="title">
-        <h1>⚙️ Tableau de bord vendeur</h1>
-        <p>Gestion de Electro Yassine (Supabase)</p>
-    </div>
+    <div class="title">
+        <h1>⚙️ Tableau de bord vendeur</h1>
+        <p>Gestion de Electro Yassine (Supabase)</p>
+    </div>
 
-    <div class="stats">
-        <div class="stat">
-            <h3>📦 Produits en boutique</h3>
-            <p id="productsCount">0</p>
-        </div>
-    </div>
+    <div class="stats">
+        <div class="stat">
+            <h3>📦 Produits en boutique</h3>
+            <p id="productsCount">0</p>
+        </div>
+    </div>
 
-    <div class="card form">
-        <h2 id="formTitle">
-            ➕ Ajouter un produit
-        </h2>
+    <div class="card form">
+        <h2 id="formTitle">
+            ➕ Ajouter un produit
+        </h2>
 
-        <input id="productName" type="text" placeholder="Nom du produit">
-        <input id="productPrice" type="number" placeholder="Prix en DH">
-        <input id="productImage" type="file" accept="image/*" onchange="previewImage()">
-        
-        <img id="imagePreview" class="preview" alt="Aperçu">
-        <br>
+        <input id="productName" type="text" placeholder="Nom du produit">
+        <input id="productPrice" type="number" placeholder="Prix en DH">
+        <input id="productImage" type="file" accept="image/*" onchange="previewImage()">
+        
+        <img id="imagePreview" class="preview" alt="Aperçu">
+        <br>
 
-        <button class="save" onclick="saveProduct()">
-            💾 Enregistrer
-        </button>
-        <button class="cancel" onclick="cancelEdit()">
-            Annuler
-        </button>
-    </div>
+        <button class="save" onclick="saveProduct()">
+            💾 Enregistrer
+        </button>
+        <button class="cancel" onclick="cancelEdit()">
+            Annuler
+        </button>
+    </div>
 
-    <!-- PRODUITS -->
-    <div class="card">
-        <h2>📦 Gestion des produits</h2>
-        <div id="productsList"></div>
-    </div>
+    <div class="card">
+        <h2>📦 Gestion des produits</h2>
+        <div id="productsList"></div>
+    </div>
 </div>
 
-<!-- مكتبة Supabase -->
 <script type="module">
-    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
 
-    const supabaseUrl = 'https://nvimuhzejyauoriupkot.supabase.co';
-    const supabaseKey = 'sb_publishable_27i9MDfLKt8i-lWiiROvDA_CfF_yRvS';
-    const supabase = createClient(supabaseUrl, supabaseKey);
+    const supabaseUrl = 'https://nvimuhzejyauoriupkot.supabase.co';
+    const supabaseKey = 'sb_publishable_27i9MDfLKt8i-lWiiROvDA_CfF_yRvS';
+    const supabase = createClient(supabaseUrl, supabaseKey);
 
-    window.supabase = supabase; // جعلها عامة للاستخدام في الدوال
+    window.supabase = supabase; // جعلها عامة للاستخدام في الدوال
 
-    let products = [];
-    let editingId = null;
+    let products = [];
+    let editingId = null;
 
-    async function fetchProducts() {
-        const { data, error } = await supabase.from('products').select('*');
-        if (error) {
-            console.error('خطأ في جلب المنتجات:', error);
-        } else {
-            products = data || [];
-            displayProducts();
-        }
-    }
+    async function fetchProducts() {
+        const { data, error } = await supabase.from('products').select('*');
+        if (error) {
+            console.error('خطأ في جلب المنتجات:', error);
+        } else {
+            products = data || [];
+            displayProducts();
+        }
+    }
 
-    window.previewImage = function() {
-        const file = document.getElementById("productImage").files[0];
-        if(!file) return;
+    window.previewImage = function() {
+        const file = document.getElementById("productImage").files[0];
+        if(!file) return;
 
-        const reader = new FileReader();
-        reader.onload = function(e){
-            const preview = document.getElementById("imagePreview");
-            preview.src = e.target.result;
-            preview.style.display = "block";
-        };
-        reader.readAsDataURL(file);
-    }
+        const reader = new FileReader();
+        reader.onload = function(e){
+            const preview = document.getElementById("imagePreview");
+            preview.src = e.target.result;
+            preview.style.display = "block";
+        };
+        reader.readAsDataURL(file);
+    }
 
-    window.saveProduct = async function() {
-        const name = document.getElementById("productName").value.trim();
-        const price = Number(document.getElementById("productPrice").value);
-        const fileInput = document.getElementById("productImage");
-        const file = fileInput.files[0];
+    window.saveProduct = async function() {
+        const name = document.getElementById("productName").value.trim();
+        const price = Number(document.getElementById("productPrice").value);
+        const fileInput = document.getElementById("productImage");
+        const file = fileInput.files[0];
 
-        if(!name){
-            alert("❌ Entre le nom du produit.");
-            return;
-        }
+        if(!name){
+            alert("❌ Entre le nom du produit.");
+            return;
+        }
 
-        if(!price || price <= 0){
-            alert("❌ Entre un prix valide.");
-            return;
-        }
+        if(!price || price <= 0){
+            alert("❌ Entre un prix valide.");
+            return;
+        }
 
-        if(editingId === null && !file){
-            alert("❌ Choisis une photo du produit.");
-            return;
-        }
+        // Si on est en train d'ajouter un nouveau produit, l'image est obligatoire
+        if(editingId === null && !file){
+            alert("❌ Choisis une photo du produit.");
+            return;
+        }
 
-        let imageUrl = null;
+        let imageUrl = null;
 
-        if(file){
-            const fileName = `${Date.now()}-${file.name}`;
-            const { data: uploadData, error: uploadError } = await supabase.storage
-                .from('products') // اسم الـ Bucket الذي أنشأته
-                .upload(fileName, file);
+        // Si une nouvelle image a été sélectionnée, on l'upload
+        if(file){
+            const fileName = `${Date.now()}-${file.name}`;
+            const { data: uploadData, error: uploadError } = await supabase.storage
+                .from('products')
+                .upload(fileName, file);
 
-            if(uploadError){
-                alert("❌ خطأ في رفع الصورة: " + uploadError.message);
-                return;
-            }
+            if(uploadError){
+                alert("❌ خطأ في رفع الصورة: " + uploadError.message);
+                return;
+            }
 
-            const { data: { publicUrl } } = supabase.storage
-                .from('products')
-                .getPublicUrl(fileName);
+            const { data: { publicUrl } } = supabase.storage
+                .from('products')
+                .getPublicUrl(fileName);
 
-            imageUrl = publicUrl;
-        } else {
-            const oldProduct = products.find(p => p.id === editingId);
-            if(oldProduct) imageUrl = oldProduct.Image;
-        }
-        if(editingId !== null){
-            const { error } = await supabase
-                .from('products')
-                .update({ title: name, price: price, Image: imageUrl })
-                .eq('id', editingId);
+            imageUrl = publicUrl;
+        } else {
+            // Si on modifie et qu'on n'a PAS choisi de nouvelle photo, on récupère l'ancienne photo
+            const oldProduct = products.find(p => p.id === editingId);
+            if(oldProduct) {
+                imageUrl = oldProduct.Image;
+            }
+        }
 
-            if(error){
-                alert("❌ خطأ أثناء التحديث: " + error.message);
-            } else {
-                alert("✅ Produit modifié avec succès !");
-            }
-        } else {
-            const { error } = await supabase
-                .from('products')
-                .insert([{ title: name, price: price, Image: imageUrl }]);
+        if(editingId !== null){
+            // Mise à jour
+            const { error } = await supabase
+                .from('products')
+                .update({ title: name, price: price, Image: imageUrl })
+                .eq('id', editingId);
 
-            if(error){
-                alert("❌ خطأ أثناء الإضافة: " + error.message);
-            } else {
-                alert("✅ Produit ajouté avec succès !");
-            }
-        }
+            if(error){
+                alert("❌ خطأ أثناء التحديث: " + error.message);
+            } else {
+                alert("✅ Produit modifié avec succès !");
+            }
+        } else {
+            // Insertion
+            const { error } = await supabase
+                .from('products')
+                .insert([{ title: name, price: price, Image: imageUrl }]);
 
-        cancelEdit();
-        fetchProducts();
-    }
+            if(error){
+                alert("❌ خطأ أثناء الإضافة: " + error.message);
+            } else {
+                alert("✅ Produit ajouté avec succès !");
+            }
+        }
 
-    function displayProducts(){
-        const list = document.getElementById("productsList");
-        list.innerHTML = "";
+        cancelEdit();
+        fetchProducts();
+    }
 
-        document.getElementById("productsCount").textContent = products.length;
+    function displayProducts(){
+        const list = document.getElementById("productsList");
+        list.innerHTML = "";
 
-        if(products.length === 0){
-            list.innerHTML = `<div class="empty">Aucun produit pour le moment.</div>`;
-            return;
-        }
+        document.getElementById("productsCount").textContent = products.length;
 
-        products.forEach(product => {
-            list.innerHTML += `
-                <div class="admin-product">
-                    <img src="${product.Image}" alt="${product.title}">
-                    <div class="product-info">
-                        <strong>${product.title}</strong>
-                        <p>${product.price} DH</p>
-                    </div>
-                    <button class="edit" onclick="editProduct(${product.id})">✏️ Modifier</button>
-                    <button class="delete" onclick="deleteProduct(${product.id})">🗑️ Supprimer</button>
-                </div>
-            `;
-        });
-    }
+        if(products.length === 0){
+            list.innerHTML = `<div class="empty">Aucun produit pour le moment.</div>`;
+            return;
+        }
 
+        products.forEach(product => {
+            list.innerHTML += `
+                <div class="admin-product">
+                    <img src="${product.Image}" alt="${product.title}">
+                    <div class="product-info">
+                        <strong>${product.title}</strong>
+                        <p>${product.price} DH</p>
+                    </div>
+                    <button class="edit" onclick="editProduct(${product.id})">✏️ Modifier</button>
+                    <button class="delete" onclick="deleteProduct(${product.id})">🗑️ Supprimer</button>
+                </div>
+            `;
+        });
+    }
 
-    window.editProduct = function(id){
-        const product = products.find(p => p.id === id);
-        if(!product) return;
+    window.editProduct = function(id){
+        const product = products.find(p => p.id === id);
+        if(!product) return;
 
-        editingId = id;
-        document.getElementById("productName").value = product.title;
-        document.getElementById("productPrice").value = product.price;
+        editingId = id;
+        document.getElementById("productName").value = product.title;
+        document.getElementById("productPrice").value = product.price;
 
-        const preview = document.getElementById("imagePreview");
-        preview.src = product.Image;
-        preview.style.display = "block";
+        const preview = document.getElementById("imagePreview");
+        preview.src = product.Image;
+        preview.style.display = "block";
 
-        document.getElementById("formTitle").textContent = "✏️ Modifier le produit";
-        document.getElementById("productImage").value = "";
+        document.getElementById("formTitle").textContent = "✏️ Modifier le produit";
+        document.getElementById("productImage").value = "";
 
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
 
-    /* =====================================
-       SUPPRIMER PRODUIT
-    ===================================== */
-    window.deleteProduct = async function(id){
-        if(!confirm("Voulez-vous supprimer ce produit ?")) return;
+    window.deleteProduct = async function(id){
+        if(!confirm("Voulez-vous supprimer ce produit ?")) return;
 
-        const { error } = await supabase
-            .from('products')
-            .delete()
-            .eq('id', id);
+        const { error } = await supabase
+            .from('products')
+            .delete()
+            .eq('id', id);
 
-        if(error){
-            alert("❌ خطأ أثناء الحذف: " + error.message);
-        } else {
-            fetchProducts();
-        }
-    }
+        if(error){
+            alert("❌ خطأ أثناء الحذف: " + error.message);
+        } else {
+            fetchProducts();
+        }
+    }
 
+    window.cancelEdit = function(){
+        editingId = null;
+        document.getElementById("productName").value = "";
+        document.getElementById("productPrice").value = "";
+        document.getElementById("productImage").value = "";
+        document.getElementById("imagePreview").style.display = "none";
+        document.getElementById("formTitle").textContent = "➕ Ajouter un produit";
+    }
 
-    window.cancelEdit = function(){
-        editingId = null;
-        document.getElementById("productName").value = "";
-        document.getElementById("productPrice").value = "";
-        document.getElementById("productImage").value = "";
-        document.getElementById("imagePreview").style.display = "none";
-        document.getElementById("formTitle").textContent = "➕ Ajouter un produit";
-    }
+    window.goStore = function(){
+        window.location.href = "index.html";
+    }
 
-    window.goStore = function(){
-        window.location.href = "index.html";
-    }
-
-    fetchProducts();
+    fetchProducts();
 </script>
 
 </body>
