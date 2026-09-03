@@ -365,7 +365,6 @@ footer{
 <script type="module">
     import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
 
-    // ⚠️ استبدل هذه الروابط بمعلومات مشروعك الحقيقية من Supabase
     const supabaseUrl = 'https://nvimuhzejyauoriupkot.supabase.co';
     const supabaseKey = 'sb_publishable_27i9MDfLKt8i-lWiiROvDA_CfF_yRvS';
     const supabase = createClient(supabaseUrl, supabaseKey);
@@ -373,14 +372,12 @@ footer{
     let products = [];
     let cart = [];
 
-    // جلب المنتجات من Supabase
     async function fetchProducts() {
         const { data, error } = await supabase.from('products').select('*');
         if (error) {
             console.error('Erreur lors du chargement des produits:', error);
             products = [];
         } else {
-            // مطابقة أسماء الأعمدة في قاعدة البيانات مع الكود (title -> name, Image -> image)
             products = (data || []).map(p => ({
                 id: p.id,
                 name: p.title,
@@ -412,7 +409,7 @@ footer{
                     <div class="product-info">
                         <h3>${escapeHTML(product.name)}</h3>
                         <div class="price">${product.price} DH</div>
-                        <button class="add" onclick="window.addToCart(${product.id})">🛒 Ajouter au panier</button>
+                        <button class="add" onclick="window.addToCart('${product.id}')">🛒 Ajouter au panier</button>
                     </div>
                 </div>
             `;
@@ -426,13 +423,13 @@ footer{
     }
 
     window.addToCart = function(id){
-        const product = products.find(p => p.id === id);
+        const product = products.find(p => String(p.id) === String(id));
         if(!product){
             alert("Produit introuvable.");
             return;
         }
 
-        const existing = cart.find(p => p.id === id);
+        const existing = cart.find(p => String(p.id) === String(id));
         if(existing){
             existing.quantity++;
         }else{
@@ -450,18 +447,18 @@ footer{
     }
 
     window.changeQuantity = function(id, amount){
-        const item = cart.find(p => p.id === id);
+        const item = cart.find(p => String(p.id) === String(id));
         if(!item) return;
 
         item.quantity += amount;
         if(item.quantity <= 0){
-            cart = cart.filter(p => p.id !== id);
+            cart = cart.filter(p => String(p.id) !== String(id));
         }
         updateCart();
     }
 
     window.removeFromCart = function(id){
-        cart = cart.filter(p => p.id !== id);
+        cart = cart.filter(p => String(p.id) !== String(id));
         updateCart();
     }
 
@@ -484,10 +481,10 @@ footer{
                         <strong>${escapeHTML(item.name)}</strong>
                         <p>${item.price} DH</p>
                         <div class="quantity">
-                            <button onclick="window.changeQuantity(${item.id}, -1)">-</button>
+                            <button onclick="window.changeQuantity('${item.id}', -1)">-</button>
                             <span>${item.quantity}</span>
-                            <button onclick="window.changeQuantity(${item.id}, 1)">+</button>
-                            <button class="delete" onclick="window.removeFromCart(${item.id})">🗑</button>
+                            <button onclick="window.changeQuantity('${item.id}', 1)">+</button>
+                            <button class="delete" onclick="window.removeFromCart('${item.id}')">🗑</button>
                         </div>
                     </div>
                 </div>
@@ -574,7 +571,6 @@ footer{
         }
     }
 
-    // تشغيل جلب المنتجات فور تحميل الصفحة
     fetchProducts();
 </script>
 
