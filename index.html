@@ -378,8 +378,9 @@ footer{
             console.error('Erreur lors du chargement des produits:', error);
             products = [];
         } else {
-            products = (data || []).map(p => ({
-                id: p.id !== undefined ? p.id : (p.ID !== undefined ? p.ID : p._id),
+            // On attribue un identifiant unique (index) basé sur la position dans la liste
+            products = (data || []).map((p, index) => ({
+                uniqueId: "prod_" + index,
                 name: p.title,
                 price: p.price,
                 image: p.Image
@@ -409,7 +410,7 @@ footer{
                     <div class="product-info">
                         <h3>${escapeHTML(product.name)}</h3>
                         <div class="price">${product.price} DH</div>
-                        <button class="add" onclick="window.addToCart('${product.id}')">🛒 Ajouter au panier</button>
+                        <button class="add" onclick="window.addToCart('${product.uniqueId}')">🛒 Ajouter au panier</button>
                     </div>
                 </div>
             `;
@@ -422,19 +423,19 @@ footer{
         return div.innerHTML;
     }
 
-    window.addToCart = function(id){
-        const product = products.find(p => String(p.id) === String(id));
+    window.addToCart = function(uniqueId){
+        const product = products.find(p => p.uniqueId === uniqueId);
         if(!product){
             alert("Produit introuvable.");
             return;
         }
 
-        const existing = cart.find(p => String(p.id) === String(id));
+        const existing = cart.find(p => p.uniqueId === uniqueId);
         if(existing){
             existing.quantity++;
         }else{
             cart.push({
-                id: product.id,
+                uniqueId: product.uniqueId,
                 name: product.name,
                 price: Number(product.price),
                 image: product.image,
@@ -446,19 +447,19 @@ footer{
         openCart();
     }
 
-    window.changeQuantity = function(id, amount){
-        const item = cart.find(p => String(p.id) === String(id));
+    window.changeQuantity = function(uniqueId, amount){
+        const item = cart.find(p => p.uniqueId === uniqueId);
         if(!item) return;
 
         item.quantity += amount;
         if(item.quantity <= 0){
-            cart = cart.filter(p => String(p.id) !== String(id));
+            cart = cart.filter(p => p.uniqueId !== uniqueId);
         }
         updateCart();
     }
 
-    window.removeFromCart = function(id){
-        cart = cart.filter(p => String(p.id) !== String(id));
+    window.removeFromCart = function(uniqueId){
+        cart = cart.filter(p => p.uniqueId !== uniqueId);
         updateCart();
     }
 
@@ -481,10 +482,10 @@ footer{
                         <strong>${escapeHTML(item.name)}</strong>
                         <p>${item.price} DH</p>
                         <div class="quantity">
-                            <button onclick="window.changeQuantity('${item.id}', -1)">-</button>
+                            <button onclick="window.changeQuantity('${item.uniqueId}', -1)">-</button>
                             <span>${item.quantity}</span>
-                            <button onclick="window.changeQuantity('${item.id}', 1)">+</button>
-                            <button class="delete" onclick="window.removeFromCart('${item.id}')">🗑</button>
+                            <button onclick="window.changeQuantity('${item.uniqueId}', 1)">+</button>
+                            <button class="delete" onclick="window.removeFromCart('${item.uniqueId}')">🗑</button>
                         </div>
                     </div>
                 </div>
