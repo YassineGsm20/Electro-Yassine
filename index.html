@@ -379,7 +379,7 @@ footer{
             products = [];
         } else {
             products = (data || []).map(p => ({
-                id: p.id,
+                id: p.id !== undefined ? p.id : (p.ID !== undefined ? p.ID : p._id),
                 name: p.title,
                 price: p.price,
                 image: p.Image
